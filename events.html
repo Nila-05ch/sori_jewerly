@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>이벤트 / 할인 - Sori Jewelry</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script>
+    function updateCountdown() {
+      const targetDate = new Date("2025-06-30T23:59:59").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance < 0) {
+        document.getElementById("countdown").innerText = "이벤트가 종료되었습니다!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerText =
+        `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남음`;
+    }
+    setInterval(updateCountdown, 1000);
+    window.onload = updateCountdown;
+  </script>
+</head>
+<body>
+<header>
+<h1>Sori Jewelry</h1>
+<nav>
+<a href="index.html">홈</a>
+<a href="rings.html">반지</a>
+<a href="earrings.html">귀걸이</a>
+<a href="bracelets.html">팔찌</a>
+<a href="necklaces.html">목걸이</a>
+<a href="events.html">이벤트</a>
+<a href="contact.html">연락처</a>
+</nav>
+</header>
+<main>
+<h2>🎉 지금 할인 중!</h2>
+<p>6월 마지막까지 전 제품 20% 할인 이벤트 진행 중입니다.</p>
+<h3>⏳ 남은 시간:</h3>
+<p id="countdown"></p>
+
+<section class="event-benefits-section fade-in">
+<h3>🎁 이번 이벤트 혜택</h3>
+<ul class="event-benefits">
+<li>✅ 전 제품 20% 할인</li>
+<li>✅ ₩50,000 이상 구매 시 무료배송</li>
+<li>✅ 신규 가입 고객 추가 쿠폰 증정</li>
+</ul>
+<div class="coupon-box">
+<p><strong>쿠폰 코드: SORI20</strong> — 결제 시 입력하세요!</p>
+</div>
+</section>
+</main>
+<footer>
+    © 2025 Sori Jewelry
+  </footer>
+</body>
+</html>
